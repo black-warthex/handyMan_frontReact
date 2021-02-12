@@ -1,0 +1,57 @@
+.cnt{
+    width: 70%;
+    margin: auto;
+    display: block;
+    margin-top: 15vh;
+    box-shadow:1px 1px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding-bottom: 5px;
+}
+
+.find input{
+    width: 25%;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 15px;
+    padding: 5px;
+    border-style: none;
+    border-bottom: 4px solid #9473F3;
+}
+.find label{
+    color: #9473F3;
+    margin-left: 10px;
+    font-weight: 500;
+    font-size: 16px;
+}
+.text-danger{
+    margin-left: 100px;
+    margin-right: 150px;
+    padding: 3px;
+    color: #F98A89;
+}
+
+
+.cnt button{
+    cursor: pointer;
+    
+    width: 9.8%;
+    font-size: 16px;
+    font-weight: 600;
+    margin: auto; 
+    text-align: center;       
+
+    padding: 5px 5px;
+    border: 3px solid #9473F3;
+    border-radius: 3px 3px;
+    color: #F6F5FD;    
+    background-color:#9473F3;  
+    margin-top: 10px;
+}
+
+.cnt button:disabled{
+    opacity: 0.3;
+}
+
+.cnt button:active{
+    opacity: 1;
+}

@@ -1,0 +1,31 @@
+.hours{
+    width: 30%;
+    margin: auto;
+}
+.txt{
+    margin-top: 5;
+    background-color: blue;
+    font-family: 'Montserrat Alternates', sans-serif;   
+
+}
+h3{
+    width: 100%;
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    color:#798099 ;
+    margin-left: 30px;
+    padding: 0px;
+    border-bottom: 8px solid #798099 ;
+}
+
+.des{
+    color: rgba(0,0,0,0.4);
+    text-align: left;
+    font-size: 20px;
+    padding: 0px;
+    margin: 0px;
+    margin-top: -10px;
+    margin-bottom: 3px;
+    margin-left: 50px;
+}
