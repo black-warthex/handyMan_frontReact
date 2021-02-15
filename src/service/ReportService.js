@@ -5,7 +5,7 @@ class ReportService {
     
 
     addReport(data) {
-        http.post('add', data)
+        http.post('/report/add', data)
             .then(response => {
 
                 const { data: processInformation } = response
@@ -30,7 +30,7 @@ class ReportService {
     }
 
     getHoursReport(params){
-        return http.get('report',{params: {
+        return http.get('/report/report',{params: {
             'technicalId': params.technicalId,
             'weekNumber': params.weekNumber
            }});
