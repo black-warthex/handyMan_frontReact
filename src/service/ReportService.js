@@ -1,4 +1,3 @@
-import axios from 'axios'
 import Swal from 'sweetalert2'
 import http from '../http-common'
 class ReportService {
@@ -31,7 +30,7 @@ class ReportService {
     }
 
     getHoursReport(params){
-        return axios.get('http:3.137.195.184/report/report',{params: {
+        return http.get('report',{params: {
             'technicalId': params.technicalId,
             'weekNumber': params.weekNumber
            }});
