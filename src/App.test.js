@@ -1,33 +1,52 @@
-import axios from 'axios';
-import ReportService from "./service/ReportService";
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import ReportForm from './components/form/ReportForm'
+import HoursReport from './components/HoursReport/HoursReport'
 
- 
-jest.mock('axios')
+describe('Test Report Form', () => {
 
-test('returned observable with request post', () => {
-  const add = {
-    technicalId: 'wtx-1',
-    serviceId: 's-1',
-    startDate: '2021-01-20T07:00',
-    endDate: '2021-01-20T07:10',
-    weekNumber:4
-}
-  axios.post.mockResolvedValue(add);
-  return  axios.post(add).then(data => expect(data).toEqual(add));
-}); 
+  beforeEach(() => {
+    render(<ReportForm />)
+    document.getElementById('technicalId').value = 'WTX-1'
+    document.getElementById('serviceId').value = 'S-01'
+    document.getElementById('startDate').value = '2021-01-25T07:00'
+    document.getElementById('endDate').value = '2021-01-25T20:00'
+    expect(screen.getByText('Technical ID')).toBeInTheDocument()
+    expect(screen.getByText('Service ID')).toBeInTheDocument()
+    expect(screen.getByText('Start date time')).toBeInTheDocument()
+    expect(screen.getByText('End date time')).toBeInTheDocument()
+  })
+  test('valid inputs', () => {
+    expect(screen.getByDisplayValue = 'WTX-1').toEqual('WTX-1')
+    expect(screen.getByDisplayValue = 'S-01').toEqual('S-01')
+    expect(screen.getByDisplayValue = '2021-01-25T07:00').toEqual('2021-01-25T07:00')
+    expect(screen.getByDisplayValue = '2021-01-25T20:00').toEqual('2021-01-25T20:00')
 
-test('returned calculate hours worked find by technical and number week from api via ge', () => {
-  const hourReport = {
-    normalHours: 26.0,
-    nightHours: 22.0,
-    sundayHours: 0.0,
-    normalExtraHours: 0.0,
-    nightlyOvertime: 11.0,
-    sundayExtraHours: 13.0
-  }
-const technical='wtx-1'
-const weekNumber=4
+  })
+  test('invalid inputs', () => {
+    expect(screen.getByDisplayValue = 'WTX-1').not.toBeNull()
+    expect(screen.getByDisplayValue = 'S-01').not.toBeNull()
+    expect(screen.getByDisplayValue = '2021-01-25T07:00').not.toBeNull()
+    expect(screen.getByDisplayValue = '2021-01-25T20:00').not.toBeNull()
+  })
+})
 
-  axios.get.mockResolvedValue(hourReport);
-  return  axios.get(technical,weekNumber).then(data => expect(data).toEqual(hourReport));
-}); 
+describe('Test Hours Report', () => {
+  beforeEach(() => {
+    render(<HoursReport />)
+    document.getElementById('technicalId').value = 'WTX-1'
+    document.getElementById('weekNumber').value = '4'
+    expect(screen.getByText('Technical ID')).toBeInTheDocument()
+    expect(screen.getByText('Week Number')).toBeInTheDocument()
+  })
+
+  test('valid inputs', () => {
+    expect(screen.getByDisplayValue = 'WTX-1').toEqual('WTX-1')
+    expect(screen.getByDisplayValue = '4').toEqual('4')
+  })
+
+  test('invalid inputs', () => {
+    expect(screen.getByDisplayValue = 'WTX-1').not.toEqual('WTX-2')
+    expect(screen.getByDisplayValue = '4').not.toEqual('5')
+  })
+})

@@ -17,19 +17,19 @@ const HoursReport = () => {
 
     return (
         
-        <div className="cnt">
+        <div className="container">
             <h1>HOUR REPORT</h1>
             <div className="find">
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label>Technical ID</label>
-                <input type="text" name="technicalId" placeholder="insert technical id" ref={register({
+                <input id="technicalId" type="text" name="technicalId" placeholder="insert technical id" ref={register({
                     required: {
                         value: true,
                         message: 'valor requerido'
                     }
                 })} />
                 <label>Week Number</label>
-                <input type="number" name="weekNumber"  placeholder="insert week number" min="1" max="53" ref={register({
+                <input id="weekNumber" type="number" name="weekNumber"  placeholder="insert week number" min="1" max="53" ref={register({
                     required: {
                         value: true,
                         message: 'valor requerido',
@@ -43,7 +43,7 @@ const HoursReport = () => {
                         message: 'the week number cannot exceed 53'
                     }
                 })} />
-                <button type="submit" >search</button>
+                <button aria-label="button" type="submit" >search</button>
             </form>
             </div>
             

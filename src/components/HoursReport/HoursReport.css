@@ -1,12 +1,4 @@
-.cnt{
-    width: 70%;
-    margin: auto;
-    display: block;
-    margin-top: 15vh;
-    box-shadow:1px 1px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
-    padding-bottom: 5px;
-}
+
 
 .find input{
     width: 25%;

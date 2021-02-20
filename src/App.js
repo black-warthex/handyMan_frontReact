@@ -11,17 +11,18 @@ import {
 
 function App() {
   return ( 
+    
     <Router>
-      
-      <div className="content">
-        <ul>
+    <div className="flex-container">
+    <div className="flex-items">
+    <ul>
           <li><h2>Handy Man</h2></li>
           <li><Link to="/reportForm">add report</Link></li>
           <li><Link to="/HoursReport">find hours</Link></li>
         </ul>
-      
-      
-      <Switch>
+    </div>
+    <div className="flex-items">
+    <Switch>
         <Route path="/reportForm" exact>
           <ReportForm/>
         </Route>
@@ -29,9 +30,9 @@ function App() {
           <HoursReport/>
         </Route>
       </Switch>
-      </div>
-    </Router>
-    
+    </div>
+ </div>
+ </Router>
    
   );
 }
