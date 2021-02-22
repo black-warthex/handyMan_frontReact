@@ -16,37 +16,37 @@ const HoursReport = () => {
     }
 
     return (
-        
+
         <div className="container">
             <h1>HOUR REPORT</h1>
             <div className="find">
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label>Technical ID</label>
-                <input id="technicalId" type="text" name="technicalId" placeholder="insert technical id" ref={register({
-                    required: {
-                        value: true,
-                        message: 'valor requerido'
-                    }
-                })} />
-                <label>Week Number</label>
-                <input id="weekNumber" type="number" name="weekNumber"  placeholder="insert week number" min="1" max="53" ref={register({
-                    required: {
-                        value: true,
-                        message: 'valor requerido',
-                    },
-                    min: {
-                        value: 1,
-                        message: 'the week number cannot be less than 1'
-                    },
-                    max: {
-                        value: 53,
-                        message: 'the week number cannot exceed 53'
-                    }
-                })} />
-                <button aria-label="button" type="submit" >search</button>
-            </form>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <label htmlFor="technicalId">Technical ID</label>
+                    <input id="technicalId" type="text" name="technicalId" placeholder="insert technical id" ref={register({
+                        required: {
+                            value: true,
+                            message: 'valor requerido'
+                        }
+                    })} />
+                    <label htmlFor="weekNumber">Week Number</label>
+                    <input id="weekNumber" type="number" name="weekNumber" placeholder="insert week number" min="1" max="53" ref={register({
+                        required: {
+                            value: true,
+                            message: 'valor requerido',
+                        },
+                        min: {
+                            value: 1,
+                            message: 'the week number cannot be less than 1'
+                        },
+                        max: {
+                            value: 53,
+                            message: 'the week number cannot exceed 53'
+                        }
+                    })} />
+                    <button aria-label="button" type="submit" >search</button>
+                </form>
             </div>
-            
+
             <span className="text-danger ">
                 {errors?.technicalId?.message}
             </span>
@@ -56,7 +56,7 @@ const HoursReport = () => {
             <div>
                 {report && <ShowData technicalId={report} />}
             </div>
-            
+
         </div>
     )
 }

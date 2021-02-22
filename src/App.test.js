@@ -2,51 +2,57 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import ReportForm from './components/form/ReportForm'
 import HoursReport from './components/HoursReport/HoursReport'
+import userEvent from '@testing-library/user-event'
 
-describe('Test Report Form', () => {
+describe('Test Add Report',()=>{
 
-  beforeEach(() => {
-    render(<ReportForm />)
-    document.getElementById('technicalId').value = 'WTX-1'
-    document.getElementById('serviceId').value = 'S-01'
-    document.getElementById('startDate').value = '2021-01-25T07:00'
-    document.getElementById('endDate').value = '2021-01-25T20:00'
-    expect(screen.getByText('Technical ID')).toBeInTheDocument()
-    expect(screen.getByText('Service ID')).toBeInTheDocument()
-    expect(screen.getByText('Start date time')).toBeInTheDocument()
-    expect(screen.getByText('End date time')).toBeInTheDocument()
+  beforeEach(()=>{
+    render(<ReportForm/>)
+    let technicalId = screen.getByLabelText(/Technical ID/i)
+    let serviceId = screen.getByLabelText(/Service ID/i)
+    let startDate = screen.getByLabelText(/Start date time/i)
+    let endDate = screen.getByLabelText(/End date time/i)
+
+    userEvent.type(technicalId,'WTX-1')
+    userEvent.type(serviceId,'S-01')
+    userEvent.type(startDate,'2021-01-25T07:00')
+    userEvent.type(endDate,'2021-01-25T20:00')
   })
-  test('valid inputs', () => {
-    expect(screen.getByDisplayValue = 'WTX-1').toEqual('WTX-1')
-    expect(screen.getByDisplayValue = 'S-01').toEqual('S-01')
-    expect(screen.getByDisplayValue = '2021-01-25T07:00').toEqual('2021-01-25T07:00')
-    expect(screen.getByDisplayValue = '2021-01-25T20:00').toEqual('2021-01-25T20:00')
-
+  test('valid inputs',()=>{
+    expect(technicalId).toHaveValue('WTX-1')
+    expect(serviceId).toHaveValue('S-01')
+    expect(startDate).not.toBeNull()
+    expect(endDate).not.toBeNull()
   })
-  test('invalid inputs', () => {
-    expect(screen.getByDisplayValue = 'WTX-1').not.toBeNull()
-    expect(screen.getByDisplayValue = 'S-01').not.toBeNull()
-    expect(screen.getByDisplayValue = '2021-01-25T07:00').not.toBeNull()
-    expect(screen.getByDisplayValue = '2021-01-25T20:00').not.toBeNull()
+  test('invalid inputs',()=>{
+    expect(technicalId).not.toHaveValue(1)
+    expect(serviceId).not.toHaveValue(1)
+    expect(startDate).not.toBeNull()
+    expect(endDate).not.toBeNull()
   })
 })
+
 
 describe('Test Hours Report', () => {
+
   beforeEach(() => {
     render(<HoursReport />)
-    document.getElementById('technicalId').value = 'WTX-1'
-    document.getElementById('weekNumber').value = '4'
-    expect(screen.getByText('Technical ID')).toBeInTheDocument()
-    expect(screen.getByText('Week Number')).toBeInTheDocument()
+    let technicalId = screen.getByLabelText(/Technical ID/i)
+    let weekNumber = screen.getByLabelText(/Week Number/i)
+    userEvent.type(technicalId, 'WTX-1')
+    userEvent.type(weekNumber, '4')
   })
 
   test('valid inputs', () => {
-    expect(screen.getByDisplayValue = 'WTX-1').toEqual('WTX-1')
-    expect(screen.getByDisplayValue = '4').toEqual('4')
+    expect(technicalId).toHaveValue('WTX-1')
+    expect(weekNumber).toHaveValue(4)
   })
 
   test('invalid inputs', () => {
-    expect(screen.getByDisplayValue = 'WTX-1').not.toEqual('WTX-2')
-    expect(screen.getByDisplayValue = '4').not.toEqual('5')
+    expect(technicalId).not.toHaveValue(1)
+    expect(weekNumber).not.toHaveValue('four')
   })
+
 })
+
+

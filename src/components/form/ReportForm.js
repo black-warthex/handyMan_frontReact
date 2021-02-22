@@ -33,16 +33,16 @@ export class ReportForm extends React.Component {
                 <h1>ADD REPORT</h1>
                 <div className="inputs">
                     <form onSubmit={this.handleSubmit} >
-                        <label>Technical ID</label>
+                        <label htmlFor="technicalId">Technical ID</label>
                         <input type="text" name="technicalId" id="technicalId" onChange={this.handleChange} value={this.technicalId} required />
                         <br />
-                        <label>Service ID</label>
+                        <label htmlFor="serviceId">Service ID</label>
                         <input type="text" name="serviceId" id="serviceId" onChange={this.handleChange} value={this.serviceId} required />
                         <br />
-                        <label>Start date time</label>
+                        <label htmlFor="startDate">Start date time</label>
                         <input type="datetime-local" id="startDate" min="2021-01-01T00:00" name="startDate" onChange={this.handleChange} value={this.startDate} required />
                         <br />
-                        <label>End date time</label>
+                        <label htmlFor="endDate">End date time</label>
                         <input type="datetime-local" id="endDate" min="2021-01-01T00:00" name="endDate" onChange={this.handleChange} value={this.endDate} required />
     
 
